@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Skill Navigator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-dark: #4338CA;
+      --accent: #10B981;
+      --light: #F9FAFB;
+      --dark: #111827;
+      --gray: #6B7280;
+      --light-gray: #E5E7EB;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e1b4b 0%, #111827 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .login-container {
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3rem 2.5rem;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-icon {
+      font-size: 2.25rem;
+      color: var(--accent);
+    }
+
+    .logo-text {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .title {
+      font-size: 1.25rem;
+      color: var(--light-gray);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--light-gray);
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1rem 0.875rem 2.75rem;
+      background: rgba(31, 41, 55, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+      background: rgba(31, 41, 55, 0.8);
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .toggle-password:hover {
+      color: white;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 0.875rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .login-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .login-btn:active {
+      transform: translateY(0);
+    }
+
+    .error-box {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    .footer-text {
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <div class="logo-icon"><i class="fas fa-compass"></i></div>
+      <div class="logo-text">Skill Navigator</div>
+    </div>
+    <p class="title">Please sign in to access the system</p>
+
+    <div class="error-box" id="errorBox">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="errorMessage">Invalid username or password</span>
+    </div>
+
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label class="form-label" for="username">Username</label>
+        <div class="input-wrapper">
+          <i class="fas fa-user input-icon"></i>
+          <input 
+            type="text" 
+            id="username" 
+            class="form-input" 
+            placeholder="Enter username" 
+            required 
+            autocomplete="username"
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <div class="input-wrapper">
+          <i class="fas fa-lock input-icon"></i>
+          <input 
+            type="password" 
+            id="password" 
+            class="form-input" 
+            placeholder="Enter password" 
+            required
+            autocomplete="current-password"
+          >
+          <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+            <i class="far fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="login-btn" id="submitBtn">Sign In</button>
+    </form>
+
+    <p class="footer-text">Protected by VAAGDEVI COLLEGE OF ENGINEERING</p>
+  </div>
+
+  <script>
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eyeIcon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const usernameInput = document.getElementById('username').value;
+      const passwordInput = document.getElementById('password').value;
+      const errorBox = document.getElementById('errorBox');
+      const errorMessage = document.getElementById('errorMessage');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // Reset error box
+      errorBox.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Signing in...';
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: usernameInput, password: passwordInput })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          window.location.href = '/index.html';
+        } else {
+          errorMessage.textContent = data.error || 'Invalid credentials';
+          errorBox.style.display = 'flex';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Sign In';
+        }
+      } catch (err) {
+        console.error(err);
+        errorMessage.textContent = 'Network error. Please try again.';
+        errorBox.style.display = 'flex';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In';
+      }
+    }
+  </script>
+</body>
+</html>

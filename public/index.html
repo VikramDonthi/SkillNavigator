@@ -328,6 +328,29 @@
     .no-results-text {
       color: var(--gray);
     }
+
+    .logout-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: #EF4444;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .logout-btn:hover {
+      background: #DC2626;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 
@@ -347,7 +370,9 @@
 
       <p class="tagline">Mini Project Vikram Donthi<br>Department of CSE<br>VAAGDEVI COLLEGE OF ENGENIEERING</p>
       <nav>
-        <!-- Add navigation items here if needed -->
+        <button onclick="handleLogout()" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
       </nav>
     </div>
 
@@ -420,6 +445,11 @@
           body: JSON.stringify({ skills: selectedSkills })
         });
 
+        if (response.status === 401) {
+          window.location.href = '/login.html';
+          return;
+        }
+
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const jobs = await response.json();
@@ -486,6 +516,19 @@
         calculateEmployability();
       }
     });
+
+    async function handleLogout() {
+      try {
+        const response = await fetch('/api/logout', { method: 'POST' });
+        if (response.ok) {
+          window.location.href = '/login.html';
+        } else {
+          alert('Could not log out. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error logging out:', error);
+      }
+    }
   </script>
 </body>
 
