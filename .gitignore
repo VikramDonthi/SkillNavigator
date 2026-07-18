@@ -1,0 +1,6 @@
+node_modules/
+.env
+.system_generated/
+task.md
+implementation_plan.md
+walkthrough.md

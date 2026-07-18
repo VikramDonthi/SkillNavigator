@@ -1,0 +1,146 @@
+{
+    "skills": ["Python", "Communication", "Fashion Design", "Teaching", "Nursing", "Project Management","AutoCAD",
+    "Finance",
+    "Photoshop",
+    "Hospitality Management",
+    "Electrical Wiring",
+    "Creativity",
+    "Customer Service",
+    "Numerical Reasoning",
+    "Site Management",
+    "Troubleshooting"],
+    "jobs": [
+      {
+        "title": "Software Engineer",
+        "sector": "Technology",
+        "requiredSkills": ["python", "project management"],
+        "companies": ["Company A", "Company B"],
+        "employabilityScore": 90,
+        "recruitmentProcess": [
+          "Step 1: Online Application",
+          "Step 2: Technical Interview",
+          "Step 3: HR Round"
+        ]
+      },
+      {
+        "title": "Government Clerk",
+        "sector": "Government",
+        "requiredSkills": ["communication"],
+        "companies": ["Government Office X"],
+        "employabilityScore": 75,
+        "recruitmentProcess": [
+          "Step 1: Written Exam",
+          "Step 2: Interview",
+          "Step 3: Document Verification"
+        ]
+      },
+      {
+        "title": "Fashion Designer",
+        "sector": "Fashion",
+        "requiredSkills": ["fashion Design"],
+        "companies": ["Fashion House Y"],
+        "employabilityScore": 85,
+        "recruitmentProcess": [
+          "Step 1: Portfolio Review",
+          "Step 2: Design Test",
+          "Step 3: Interview"
+        ]
+      },
+      {
+        "title": "Teacher",
+        "sector": "Education",
+        "requiredSkills": ["teaching", "communication"],
+        "companies": ["School Z"],
+        "employabilityScore": 80,
+        "recruitmentProcess": [
+          "Step 1: Written Test",
+          "Step 2: Demo Class",
+          "Step 3: Interview"
+        ]
+      },
+      {
+        "title": "Nurse",
+        "sector": "Healthcare",
+        "requiredSkills": ["nursing", "communication"],
+        "companies": ["Hospital W"],
+        "employabilityScore": 88,
+        "recruitmentProcess": [
+          "Step 1: Written Exam",
+          "Step 2: Practical Test",
+          "Step 3: Interview"
+        ]
+      },
+      {
+        "title": "Professional Cricketer",
+        "sector": "Sports",
+        "requiredSkills": ["cricket", "athlete"],
+        "companies": ["HCA","PCA","ICC"],
+        "employabilityScore": 88,
+        "recruitmentProcess": [
+          "Step 1: Skill test",
+          "Step 2: Fitness check",
+          "Step 3: Interview"
+        ]
+      },
+      {
+        "title": "Civil Engineer",
+        "sector": "Construction",
+        "requiredSkills": ["AutoCAD", "Site Management"],
+        "companies": ["L&T", "Tata Projects"],
+        "employabilityScore": 82,
+        "recruitmentProcess": [
+          "Step 1: Online Application",
+          "Step 2: Technical Interview",
+          "Step 3: HR Round"
+        ]
+      },
+      {
+        "title": "Banking Associate",
+        "sector": "Banking",
+        "requiredSkills": ["Finance", "Numerical Reasoning"],
+        "companies": ["SBI", "HDFC Bank"],
+        "employabilityScore": 78,
+        "recruitmentProcess": [
+          "Step 1: Preliminary Exam",
+          "Step 2: Mains Exam",
+          "Step 3: Interview"
+        ]
+      },
+      {
+        "title": "Graphic Designer",
+        "sector": "Media",
+        "requiredSkills": ["Photoshop", "Creativity"],
+        "companies": ["Design Studio X", "Ad Agency Y"],
+        "employabilityScore": 83,
+        "recruitmentProcess": [
+          "Step 1: Portfolio Submission",
+          "Step 2: Creative Test",
+          "Step 3: Interview"
+        ]
+      },
+      {
+        "title": "Hotel Manager",
+        "sector": "Hospitality",
+        "requiredSkills": ["Hospitality Management", "Customer Service"],
+        "companies": ["Taj Hotels", "ITC Hotels"],
+        "employabilityScore": 81,
+        "recruitmentProcess": [
+          "Step 1: Group Discussion",
+          "Step 2: Technical Interview",
+          "Step 3: HR Interview"
+        ]
+      },
+      {
+        "title": "Electrician",
+        "sector": "Skilled Trades",
+        "requiredSkills": ["Electrical Wiring", "Troubleshooting"],
+        "companies": ["Contractor Co", "Maintenance Services Ltd"],
+        "employabilityScore": 76,
+        "recruitmentProcess": [
+          "Step 1: Practical Test",
+          "Step 2: Technical Interview",
+          "Step 3: Medical Fitness Test"
+        ]
+      }
+    ]
+}
