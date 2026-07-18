@@ -1,7 +1,13 @@
 const { MongoClient } = require('mongodb');
 const data = require('./data.json');
+require('dotenv').config();
 
-const uri = "mongodb+srv://skillNavigatorUser:skillNavigatorUser@cluster0.ekd2q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URI;
+
+if (!uri) {
+  console.error("❌ MONGODB_URI is not defined in the environment variables!");
+  process.exit(1);
+}
 
 async function migrate() {
   const client = new MongoClient(uri);
